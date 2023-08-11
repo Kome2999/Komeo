@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Create Booking Request{% endblock %}
+
+{% block body %}
+    <h1>Create Booking Request</h1>
+
+    {{ form_start(form) }}
+    {{ form_row(form.dog) }}
+    {{ form_row(form.startDate) }}
+    {{ form_row(form.endDate) }}
+    {{ form_row(form.isolationKennelAvailable) }}
+    {{ form_row(form.sharedSocialKennelAvailable) }}
+    {{ form_row(form.vaccinationStatus) }}
+    {{ form_row(form.submit) }}
+    {{ form_end(form) }}
+{% endblock %}

@@ -1,0 +1,18 @@
+{# templates/booking/show.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block content %}
+    <h1>Booking Details</h1>
+    <p>Owner: {{ booking.owner.name }}</p>
+    <p>Dog: {{ booking.Dog.name}}</p>
+    <p>Vaccination Status: {{ booking.vaccinationStatus }}</p>
+   
+
+    {% if is_granted('approve', booking) and not booking.approved %}
+        <a href="{{ path('booking_approve', {'id': booking.id}) }}">Approve</a>
+    {% endif %}
+{% endblock %}
+
+
+   

@@ -1,0 +1,30 @@
+{# templates/keeper/index.html.twig #}
+<h1>Keeper List</h1>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Contact</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for keeper in keepers %}
+            <tr>
+                <td>{{ keeper.id }}</td>
+                <td>{{ keeper.name }}</td>
+                <td>{{ keeper.contact }}</td>
+                <td>
+                    <a href="{{ path('keeper_edit', {'id': keeper.id}) }}">Edit</a>
+                    <form method="post" action="{{ path('keeper_delete', {'id': keeper.id}) }}" onsubmit="return confirm('Are you sure you want to delete this keeper?');">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<a href="{{ path('keeper_create') }}">Create New Keeper</a>

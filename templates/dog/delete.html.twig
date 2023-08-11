@@ -1,0 +1,16 @@
+{# templates/dog/delete.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Delete Dog - {{ dog.name }}{% endblock %}
+
+{% block body %}
+    <h1>Delete Dog - {{ dog.name }}</h1>
+
+    <p>Are you sure you want to delete this dog?</p>
+
+    <form action="{{ path('dog_delete', {'id': dog.id}) }}" method="post">
+        {{ csrf_token('delete' ~ dog.id) }}
+        <button type="submit">Delete</button>
+    </form>
+{% endblock %}

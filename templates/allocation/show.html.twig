@@ -1,0 +1,32 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Allocation Details{% endblock %}
+
+{% block body %}
+    <h1>Allocation Details</h1>
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ allocation.id }}</td>
+            </tr>
+            <tr>
+                <th>Allocation Date</th>
+                <td>{{ allocation.allocationDate ? allocation.allocationDate|date('Y-m-d') : '' }}</td>
+            </tr>
+            <tr>
+                <th>Notes</th>
+                <td>{{ allocation.notes }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_allocation_index') }}">Back to list</a>
+
+    <a href="{{ path('app_allocation_edit', {'id': allocation.id}) }}">Edit</a>
+
+    <form method="post" action="{{ path('app_allocation_delete', {'id': allocation.id}) }}" onsubmit="return confirm('Are you sure you want to delete this item?');">
+        <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ allocation.id) }}">
+        <button type="submit">Delete</button>
+    </form>
+{% endblock %}

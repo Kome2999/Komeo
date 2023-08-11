@@ -1,0 +1,8 @@
+{# templates/keeper/delete.html.twig #}
+<h1>Delete Keeper</h1>
+
+<p>Are you sure you want to delete "{{ keeper.name }}"?</p>
+<form method="post" action="{{ path('keeper_delete', {'id': keeper.id}) }}">
+    <button type="submit">Delete</button>
+</form>
+<a href="{{ path('keeper_list') }}">Cancel</a>

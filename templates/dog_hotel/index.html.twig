@@ -1,0 +1,26 @@
+{# templates/dog_hotel/index.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Booking Requests{% endblock %}
+
+{% block body %}
+    <h1>Booking Requests</h1>
+
+    {% for bookingRequest in bookingRequests %}
+        <div>
+            <p>Dog: {{ bookingRequest.dog.name }}</p>
+            <p>Start Date: {{ bookingRequest.startDate|date }}</p>
+            <p>End Date: {{ bookingRequest.endDate|date }}</p>
+            {% if bookingRequest.isApproved %}
+                <p>Status: Approved</p>
+            {% else %}
+                <p>Status: Pending</p>
+                {% if is_granted('ROLE_MANAGER') %}
+                    <a href="{{ path('approve_booking', { 'id': bookingRequest.id }) }}">Approve</a>
+                    <a href="{{ path('decline_booking', { 'id': bookingRequest.id }) }}">Decline</a>
+                {% endif %}
+            {% endif %}
+        </div>
+    {% endfor %}
+{% endblock %}

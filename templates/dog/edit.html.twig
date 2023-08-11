@@ -1,0 +1,14 @@
+{# templates/dog/edit.html.twig #}
+
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Dog - {{ dog.name }}{% endblock %}
+
+{% block body %}
+    <h1>Edit Dog - {{ dog.name }}</h1>
+
+    {{ form_start(form) }}
+    {{ form_widget(form) }}
+    <button type="submit">Save Changes</button>
+    {{ form_end(form) }}
+{% endblock %}
