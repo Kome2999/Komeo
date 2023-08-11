@@ -1,0 +1,170 @@
+# Route for the login page
+app_login:
+    path: /login
+    controller: App\Controller\SecurityController::login
+
+# Set the login page as the homepage
+app_homepage:
+    path: /
+    controller: App\Controller\DefaultController::index
+
+# Routes for different homepages based on roles
+ownerpage:
+    path: /ownerpage
+    controller: App\Controller\DefaultController::ownerHomepage
+
+managerpage:
+    path: /managerpage
+    controller: App\Controller\DefaultController::managerHomepage
+
+
+vetpage:
+  path: /vet
+  controller: App\Controller\DefaultController::vetHomepage
+  
+
+keeperpage:
+  path: /keeper
+  controller: App\Controller\DefaultController::keeperHomepage
+  
+
+
+# Notice the correct indentation for the following routes
+create_dog:
+    path: /create-dog
+    controller: App\Controller\DogController::create
+
+
+dog_edit:
+    path: /dogs/{id}/edit
+    controller: App\Controller\DogController::edit
+    methods: [GET, POST] # Adjust the methods as needed
+
+dog_delete:
+    path: /dogs/{id}/delete
+    controller: App\Controller\DogController::delete
+    methods: [POST]
+
+
+# config/routes.yaml
+
+# Create Booking Request
+create_booking_request:
+    path: /booking-requests/create
+    controller: App\Controller\DogHotelController::createBookingRequest
+    methods: [GET, POST]
+    
+# List Booking Requests
+booking_requests_index:
+    path: /booking-requests
+    controller: App\Controller\DogHotelController::index
+    methods: [GET]
+
+# Approve Booking Request
+approve_booking:
+    path: /booking-requests/{id}/approve
+    controller: App\Controller\DogHotelController::approveBooking
+    methods: [GET]
+
+# Decline Booking Request
+decline_booking:
+    path: /booking-requests/{id}/decline
+    controller: App\Controller\DogHotelController::declineBooking
+    methods: [GET]
+
+dog_list:
+    path: /dogs
+    controller: App\Controller\DogController::index
+
+
+# config/routes.yaml
+app_allocation_index:
+    path: /allocation
+    controller: App\Controller\AllocationController::index
+    methods: GET
+
+app_allocation_new:
+    path: /allocation/new
+    controller: App\Controller\AllocationController::new
+    methods: GET|POST
+
+
+app_allocation_edit:
+    path: /allocation/{id}/edit
+    controller: App\Controller\AllocationController::edit
+    methods: GET|POST
+
+app_allocation_delete:
+    path: /allocation/{id}
+    controller: App\Controller\AllocationController::delete
+    methods: DELETE
+
+
+ 
+app_allocation_show:
+    path: /allocation/{id}
+    controller: App\Controller\AllocationController::show
+    methods: GET
+
+
+
+
+
+# routes.yaml
+
+app_keeper_index:
+    path: /keeper
+    controller: App\Controller\KeeperController::index
+    methods: GET
+
+app_keeper_new:
+    path: /keeper/new
+    controller: App\Controller\KeeperController::new
+    methods: GET, POST
+
+
+
+app_keeper_edit:
+    path: /keeper/{id}/edit
+    controller: App\Controller\KeeperController::edit
+    methods: GET, POST
+
+app_keeper_delete:
+    path: /keeper/{id}
+    controller: App\Controller\KeeperController::delete
+    methods: POST
+
+
+
+
+    
+keeper_list:
+    path: /keepers
+    controller: App\Controller\KeeperController::index
+    methods: GET
+
+keeper_create:
+    path: /keepers/create
+    controller: App\Controller\KeeperController::create
+    methods: GET|POST
+
+keeper_edit:
+    path: /keepers/{id}/edit
+    controller: App\Controller\KeeperController::edit
+    methods: GET|POST
+
+keeper_delete:
+    path: /keepers/{id}/delete
+    controller: App\Controller\KeeperController::delete
+    methods: POST
+
+
+
+
+
+# config/routes.yaml
+
+app_logout:
+    path: /logout
+
+
